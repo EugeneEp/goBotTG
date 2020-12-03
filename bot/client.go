@@ -53,7 +53,7 @@ func ServeClient(hub *Hub) {
 	defer ticker.Stop()
 	for {
 		select {
-		case <-ticker.C: // Каждые 3 секунды проверяем обновления, отщищаем предыдущие
+		case <-ticker.C: // Каждые 3 секунды проверяем обновления, очищаем предыдущие
 			resp, err := http.Get(apiURL + "/getUpdates?offset=" + strconv.Itoa(hub.Offset))
 			if err != nil {
 				fmt.Println(err)
@@ -121,7 +121,7 @@ func ServeClient(hub *Hub) {
 
 			// Если количество сообщений больше 0,
 			// записываем update_id последнего сообщения в канал,
-			// для дальнейшей отчистки telegram api от предыдущих сообщений
+			// для дальнейшей очистки telegram api от предыдущих сообщений
 			length := len(message.Result)
 			if length > 0 {
 				hub.Offset = message.Result[length-1].UpdateID + 1

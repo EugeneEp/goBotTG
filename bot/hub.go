@@ -36,9 +36,9 @@ func NewHub() *Hub {
 		register:  make(chan *Client),
 		setAction: make(chan *Client),
 		message:   make(chan *Client),
-		token:     "bot**********************************************", // Токен от вашего бота telegram
+		token:     "bot1446985566:AAF73FkSr8xO9UhmY6IPdNWu3avue16H2SI", // Токен от вашего бота telegram
 		api:       "https://api.telegram.org",
-		adminPass: "***********************", // Пароль администратора
+		adminPass: "ji128u*(WHJd898wyu9j24)", // Пароль администратора
 		Offset:    0,
 	}
 }
